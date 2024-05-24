@@ -135,7 +135,8 @@
              (x-builtins-regexp (regexp-opt kusto-builtin-functions 'symbols))
              (x-datatypes-regexp (regexp-opt kusto-data-types 'symbols)))
 
-        `((, "'[^']*'\\|\"[^\"]*\"" . font-lock-string-face)
+        `((, "//.*$" . font-lock-comment-face)
+          (, "'[^']*'\\|\"[^\"]*\"" . font-lock-string-face)
           (, x-builtins-regexp . font-lock-builtin-face)
           (, x-datatypes-regexp . font-lock-builtin-face)
           (, x-keywords-regexp . font-lock-keyword-face)
