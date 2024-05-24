@@ -131,15 +131,15 @@
 ;; create the list for font-lock.
 ;; each category of keyword is given a particular face
 (setq kusto-font-lock-keywords
-      (let* ((x-keywords-regexp (regexp-opt kusto-operators 'symbols))
-             (x-builtins-regexp (regexp-opt kusto-builtin-functions 'symbols))
-             (x-datatypes-regexp (regexp-opt kusto-data-types 'symbols)))
+      (let* ((x-keywords-regexp (regexp-opt kusto-operators 'words))
+             (x-builtins-regexp (regexp-opt kusto-builtin-functions 'words))
+             (x-datatypes-regexp (regexp-opt kusto-data-types 'words)))
 
         `((, "//.*$" . font-lock-comment-face)
           (, "'[^']*'\\|\"[^\"]*\"" . font-lock-string-face)
           (, x-builtins-regexp . font-lock-builtin-face)
           (, x-datatypes-regexp . font-lock-builtin-face)
-          (, x-keywords-regexp . font-lock-keyword-face)
+          (, (concat "\\<" x-keywords-regexp "\\>\\|\\<" x-keywords-regexp "=") . font-lock-keyword-face)
           (, "\\<\\([[:digit:]]+\\)\\>" . font-lock-constant-face)
           (, "==\\|!=\\|=~\\|!~\\|<\\|>\\|<>\\|<=\\|>=" . font-lock-keyword-face)
           (, "!\\|~" . font-lock-negation-char-face)
