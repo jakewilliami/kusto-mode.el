@@ -26,13 +26,13 @@
 
 (defconst kusto-operators
   (let* ((x-tabular-operators
-          '("as" "consume" "count" "datatable" "distinct" "evaluate" "extend"
-            "externaldata" "facet" "find" "fork" "getschema" "invoke" "join"
-            "limit" "lookup" "make-series" "mv-apply" "mv-expand" "order"
+          '("arg_max" "as" "asc" "by" "consume" "count" "datatable" "distinct" "evaluate" "extend"
+            "externaldata" "facet" "find" "fork" "fullouter" "getschema" "inner" "innerunique" "invoke" "join" "kind" "leftanit" "leftouter" "let"
+            "limit" "lookup" "make-series" "mv-apply" "mv-expand" "on" "order"
             "project" "project-away" "project-rename" "project-reorder" "parse"
-            "parse-where" "partition" "print" "range" "reduce" "render" "sample"
+            "parse-where" "partition" "print" "range" "reduce" "render" "rightanti" "rightouter" "sample"
             "sample-distinct" "search" "serialize" "sort" "summarize" "take"
-            "top" "top-nested" "top-hitters" "union" "where"))
+            "top" "top-nested" "top-hitters" "union" "where" "$left" "$right"))
          (x-scalar-operators
           '("has" "has_cs" "hasprefix" "hasprefix_cs" "hassuffix" "hassuffix_cs"
             "contains" "contains_cs" "startswith" "startswith_cs" "endswith"
