@@ -1,8 +1,12 @@
-;;; company-kusto.el --- company-mode completion backend for kusto-mode  -*- lexical-binding: t -*-
+;;; company-kusto.el --- Company-mode completion backend for kusto-mode  -*- lexical-binding: t -*-
 
 ;; Copyright © 2019, by Hindol Adhya
 
-;; Author: Hindol Adhya <hindol.github.io>
+;; Author: Hindol Adhya <hindol.adhya@gmail.com>
+;; Version: 0.0.1
+;; Keywords: languages kusto kql query company
+;; Homepage: https://github.com/ration/kusto-mode.el
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -22,8 +26,12 @@
           kusto-data-types))
 
 ;;;###autoload
-(defun company-kusto (command &optional arg &rest ignored)
-  "`company-mode' completion backend for `kusto-mode'."
+(defun company-kusto (command &optional arg &rest _ignored)
+  "`company-mode' completion backend for `kusto-mode'.
+Argument COMMAND specifies the action for the completion backend (possible
+values: `interactive', `prefix', `candidates', `sorted').
+Optional argument ARG if COMMAND is `candidates', holds the prefix (partial
+symbol) for which the backend should provide possible completions."
   (interactive (list 'interactive))
   (cl-case command
     (interactive (company-begin-backend 'company-kusto))

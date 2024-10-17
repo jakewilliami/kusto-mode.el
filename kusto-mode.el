@@ -1,12 +1,13 @@
-;;; kusto-mode.el --- sample major mode for editing LSL. -*- coding: utf-8; lexical-binding: t; -*-
+;;; kusto-mode.el --- Sample major mode for editing LSL -*- coding: utf-8; lexical-binding: t; -*-
 
-;; Copyright © 2019, by Hindol Adhya, Tatu Lahtela
+;; Copyright © 2019–2024, by Hindol Adhya, Tatu Lahtela
 
-;; Author: Hindol Adhya, Tatu Lahtela <tatu@lahtela.me>
+;; Author: Hindol Adhya <hindol.adhya@gmail.com>, Tatu Lahtela <tatu@lahtela.me>
 ;; Version: 0.0.1
 ;; Created: 2019-09-12
-;; Keywords: languages
+;; Keywords: languages kusto mode kql query
 ;; Homepage: https://github.com/ration/kusto-mode.el
+;; Package-Requires: ((emacs "24.1"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -22,7 +23,7 @@
 
 (defconst kusto-data-types
   '("bool" "datetime" "dynamic" "guid" "int" "long" "real" "string" "timespan"
-  "decimal"))
+    "decimal"))
 
 (defconst kusto-operators
   (let* ((x-tabular-operators
@@ -42,8 +43,6 @@
     (append x-tabular-operators
             x-scalar-operators
             x-logical-operators)))
-
-(regexp-opt '("==" "!=" "=~" "!~" "<" ">" "<>" "and" "or" "between") 'symbols)
 
 (defconst kusto-builtin-functions
   (let* ((x-binary-functions
@@ -171,7 +170,7 @@
 
 ;;;###autoload
 (define-derived-mode kusto-mode text-mode "Kusto"
-  "Major mode for editing Kusto Query Language"
+  "Major mode for editing Kusto Query Language."
   (make-local-variable 'kusto-indent-offset)
   (set (make-local-variable 'indent-line-function) 'kusto-indent-line)
 
